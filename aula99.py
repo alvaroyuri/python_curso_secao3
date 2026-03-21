@@ -25,19 +25,42 @@ contrário disso:
 O primeiro dígito do CPF é 7
 """
 
-mutiplicador = (10,9,8,7,6,5,4,3,2)
+mutiplicador = 10
 cpf = '746.824.890-70'
 cpf_tratado = cpf.replace('.', '').replace('-', '')[:9]
 soma = 0
 
 for i in range (9):
-    print (i)
-    mutiplicacao = int(cpf_tratado[i]) * mutiplicador [i]
+    mutiplicacao = int(cpf_tratado[i]) * mutiplicador
     soma += mutiplicacao 
+    mutiplicador -= 1
 
-print (soma)
+digito1 = ((soma * 10) % 11)
+
+if digito1 > 9:
+    digito1 = 0
+
+print ('Este é o digito 1: ', digito1)
 
 
+#Segundo exercicio
 
-#cpf = input ('Digide um cpf, apenas numeros: ')
+mutiplicador = 11
+cpf = '746.824.8907-70'
+cpf_tratado = cpf.replace('.', '').replace('-', '')[:10]
+soma = 0
+
+for i in range (10):
+    mutiplicacao = int(cpf_tratado[i]) * mutiplicador
+    soma += mutiplicacao 
+    mutiplicador -= 1
+
+digito2 = ((soma * 10) % 11)
+
+if digito2 > 9:
+    digito2 = 0
+
+print ('Este é o digito 2: ', digito2)
+
+
 
